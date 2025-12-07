@@ -4,13 +4,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Мобильное меню
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const hamburger = document.querySelector('.hamburger');
     
     if (navToggle) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
-            navToggle.innerHTML = navMenu.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            
+            // Анимация гамбургера
+            if (navMenu.classList.contains('active')) {
+                hamburger.querySelectorAll('span')[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                hamburger.querySelectorAll('span')[1].style.opacity = '0';
+                hamburger.querySelectorAll('span')[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+            } else {
+                hamburger.querySelectorAll('span')[0].style.transform = 'none';
+                hamburger.querySelectorAll('span')[1].style.opacity = '1';
+                hamburger.querySelectorAll('span')[2].style.transform = 'none';
+            }
         });
     }
     
@@ -19,11 +28,48 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
-            navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            hamburger.querySelectorAll('span')[0].style.transform = 'none';
+            hamburger.querySelectorAll('span')[1].style.opacity = '1';
+            hamburger.querySelectorAll('span')[2].style.transform = 'none';
             
             // Обновление активной ссылки
             navLinks.forEach(item => item.classList.remove('active'));
             this.classList.add('active');
+        });
+    });
+    
+    // Фильтрация проектов
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Удаляем активный класс у всех кнопок
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Добавляем активный класс текущей кнопке
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Фильтруем проекты
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                
+                if (filterValue === 'all' || category === filterValue) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
     
@@ -38,23 +84,21 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
                 
-                // Для карточек проектов добавляем задержку
-                if (entry.target.classList.contains('project-card')) {
-                    const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.1;
-                    entry.target.style.animationDelay = `${delay}s`;
+                // Для счетчиков
+                if (entry.target.classList.contains('stat-number')) {
+                    animateCounter(entry.target);
                 }
                 
-                // Для элементов навыков
-                if (entry.target.classList.contains('skill-item')) {
-                    const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 0.1;
-                    entry.target.style.animationDelay = `${delay}s`;
+                // Для progress bars
+                if (entry.target.classList.contains('level-fill')) {
+                    entry.target.style.width = entry.target.style.width;
                 }
             }
         });
     }, observerOptions);
     
     // Наблюдаем за элементами
-    const animatedElements = document.querySelectorAll('.project-card, .skill-item, .section-header, .skills-card');
+    const animatedElements = document.querySelectorAll('.project-card, .skill-card, .section-header, .skills-quote, .stat-number, .level-fill');
     animatedElements.forEach(function(el) {
         observer.observe(el);
     });
@@ -62,24 +106,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Параллакс эффект для героя
     window.addEventListener('scroll', function() {
         const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        const visualContainer = document.querySelector('.visual-container');
-        
-        if (hero && visualContainer) {
-            const rate = scrolled * -0.5;
-            visualContainer.style.transform = `translateY(${rate}px)`;
-        }
+        const navbar = document.querySelector('.navbar');
+        const visualContainer = document.querySelector('.floating-card');
         
         // Изменение навигации при скролле
-        const navbar = document.querySelector('.navbar');
         if (navbar) {
             if (scrolled > 100) {
-                navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.classList.remove('scrolled');
             }
+        }
+        
+        // Легкий параллакс для карточки
+        if (visualContainer) {
+            const rate = scrolled * -0.2;
+            visualContainer.style.transform = `translateY(${rate}px)`;
         }
         
         // Активная секция в навигации
@@ -100,22 +142,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Анимация при наведении на карточки проектов
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px) scale(1.02)';
-        });
+    // Анимация счетчиков
+    function animateCounter(element) {
+        const target = parseInt(element.getAttribute('data-count'));
+        if (isNaN(target)) return;
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-    
-    // Анимация счетчиков в герое
-    function animateCounter(element, target) {
         let current = 0;
         const increment = target / 50;
+        const duration = 1500;
+        const stepTime = duration / 50;
+        
         const timer = setInterval(() => {
             current += increment;
             if (current >= target) {
@@ -123,31 +159,86 @@ document.addEventListener('DOMContentLoaded', function() {
                 clearInterval(timer);
             }
             element.textContent = Math.floor(current);
-        }, 30);
+        }, stepTime);
     }
     
-    // Запуск счетчиков при загрузке
+    // Запуск счетчиков при загрузке (если они уже видны)
     const statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(stat => {
-        const target = parseInt(stat.textContent);
-        if (!isNaN(target)) {
-            animateCounter(stat, target);
+        if (isElementInViewport(stat)) {
+            animateCounter(stat);
         }
     });
     
+    // Вспомогательная функция для проверки видимости элемента
+    function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+    
     // Копирование кода из окна кода
-    const codeWindow = document.querySelector('.code-window');
+    const codeWindow = document.querySelector('.floating-card');
     if (codeWindow) {
-        codeWindow.addEventListener('click', function() {
-            const codeContent = document.querySelector('.window-content code').textContent;
+        codeWindow.addEventListener('click', function(e) {
+            // Проверяем, что клик был не по ссылке внутри
+            if (e.target.tagName === 'A' || e.target.closest('a')) return;
+            
+            const codeContent = document.querySelector('.card-content code').textContent;
             navigator.clipboard.writeText(codeContent).then(() => {
-                const originalTitle = this.querySelector('.window-title').textContent;
-                this.querySelector('.window-title').textContent = 'Скопировано!';
+                const originalTitle = this.querySelector('.card-title').textContent;
+                this.querySelector('.card-title').textContent = 'Скопировано!';
                 
                 setTimeout(() => {
-                    this.querySelector('.window-title').textContent = originalTitle;
+                    this.querySelector('.card-title').textContent = originalTitle;
                 }, 2000);
             });
         });
     }
+    
+    // Анимация при наведении на карточки проектов
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.zIndex = '10';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.zIndex = '1';
+        });
+    });
+    
+    // Плавный скролл для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Инициализация всех счетчиков при загрузке
+    setTimeout(() => {
+        statNumbers.forEach(stat => {
+            if (!stat.hasAttribute('data-animated')) {
+                const target = parseInt(stat.getAttribute('data-count'));
+                if (!isNaN(target) && target > 0) {
+                    stat.setAttribute('data-animated', 'true');
+                    animateCounter(stat);
+                }
+            }
+        });
+    }, 1000);
 });

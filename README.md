@@ -1,2 +1,2 @@
 # Diplomniy-Site
-Diplomniy-Site
+Дипломный сайт с работами Зимирева Ивана!

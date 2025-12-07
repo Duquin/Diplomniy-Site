@@ -3,120 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дипломные работы Зимирева Ивана</title>
+    <title>Портфолио | Зимирев Иван</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Главный баннер -->
-    <header class="banner">
-        <div class="banner-content">
-            <h1 class="banner-title">Дипломные работы <span>Зимирева Ивана</span></h1>
-            <p class="banner-subtitle">Создание современных веб-проектов с применением передовых технологий</p>
-            <div class="scroll-indicator">
-                <i class="fas fa-chevron-down"></i>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-text">IZ</span>
+                <span class="logo-sub">Портфолио</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Главная</a></li>
+                <li><a href="#projects" class="nav-link">Проекты</a></li>
+                <li><a href="#skills" class="nav-link">Навыки</a></li>
+                <li><a href="#contact" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-        <div class="banner-decoration">
-            <div class="decoration-circle circle-1"></div>
-            <div class="decoration-circle circle-2"></div>
-            <div class="decoration-circle circle-3"></div>
-        </div>
-    </header>
+    </nav>
 
-    <!-- Секция с проектами -->
-    <section class="projects-section">
-        <h2 class="section-title">Мои проекты</h2>
-        <p class="section-subtitle">Примеры моих работ, созданных во время обучения</p>
-        
-        <div class="projects-container">
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="image-placeholder nft-project">
-                        <i class="fas fa-cube"></i>
-                        <span>NFT проект</span>
-                    </div>
+    <!-- Герой-секция -->
+    <section class="hero" id="home">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>Дипломные работы</span>
                 </div>
-                <div class="project-info">
-                    <h3>NFT Plush PEPE</h3>
-                    <p>Современный сайт для продажи NFT-коллекций с интерактивной галереей и функционалом покупки.</p>
-                    <a href="https://duquin.github.io/Site-NFT-Plush-PEPE/" target="_blank" class="project-link">
-                        Посмотреть проект
-                        <i class="fas fa-external-link-alt"></i>
+                <h1 class="hero-title">Зимирев <span class="highlight">Иван</span></h1>
+                <p class="hero-subtitle">Веб-разработчик, создающий современные и интерактивные интерфейсы с акцентом на производительность и пользовательский опыт</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        Посмотреть проекты
+                        <i class="fas fa-arrow-right"></i>
                     </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        Связаться со мной
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Проекта</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Адаптивность</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">6+</span>
+                        <span class="stat-label">Технологий</span>
+                    </div>
                 </div>
             </div>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="image-placeholder antivirus-project">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Антивирус</span>
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="window-title">portfolio.js</div>
+                        </div>
+                        <div class="window-content">
+                            <pre><code>const portfolio = {
+  developer: "Иван Зимирев",
+  specialty: "Веб-разработка",
+  skills: ["JavaScript", "HTML5", "CSS3", "React", "Git", "Figma"],
+  projects: 4,
+  getSummary() {
+    return `${this.developer} - ${this.specialty}`;
+  }
+};</code></pre>
+                        </div>
                     </div>
-                </div>
-                <div class="project-info">
-                    <h3>Anti-Virus Dr. WEB</h3>
-                    <p>Лендинг для антивирусного программного обеспечения с описанием функций и преимуществ продукта.</p>
-                    <a href="https://duquin.github.io/Anti-Virus-Dr-WEB/#" target="_blank" class="project-link">
-                        Посмотреть проект
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
+                    <div class="floating-elements">
+                        <div class="floating-element el-1">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <div class="floating-element el-2">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="floating-element el-3">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция с навыками -->
-    <section class="skills-section">
-        <div class="skills-container">
-            <div class="skills-card">
-                <div class="skills-header">
-                    <h2>Чему я научился</h2>
-                    <div class="skills-icon">
-                        <i class="fas fa-graduation-cap"></i>
+    <!-- Секция проектов -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Мои проекты</h2>
+                <p class="section-subtitle">Портфолио веб-разработчика с полным циклом реализации: от дизайна до развертывания</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Проект 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-wrapper nft-image">
+                            <div class="project-tag">NFT</div>
+                            <div class="project-overlay">
+                                <a href="https://duquin.github.io/Site-NFT-Plush-PEPE/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">NFT Plush PEPE</h3>
+                        <p class="project-description">Маркетплейс для торговли NFT-коллекциями с интерактивной галереей, системой фильтрации и интеграцией криптокошельков.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://duquin.github.io/Site-NFT-Plush-PEPE/" target="_blank" class="project-action">
+                            Посмотреть проект
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="skills-content">
-                    <p>За процесс обучения и создание проектов я научился:</p>
-                    
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Создавать современные адаптивные сайты на JavaScript, HTML5 и CSS3</span>
+                <!-- Проект 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-wrapper antivirus-image">
+                            <div class="project-tag">Security</div>
+                            <div class="project-overlay">
+                                <a href="https://duquin.github.io/Anti-Virus-Dr-WEB/#" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Разрабатывать интерактивные веб-приложения с использованием React.js</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Anti-Virus Dr. WEB</h3>
+                        <p class="project-description">Лендинг антивирусного ПО с описанием функций, тарифами, системой сравнения и формой заявки на тестирование.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Работать с API и асинхронными запросами для получения данных</span>
+                        <a href="https://duquin.github.io/Anti-Virus-Dr-WEB/#" target="_blank" class="project-action">
+                            Посмотреть проект
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Проект 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-wrapper academic-image">
+                            <div class="project-tag">Education</div>
+                            <div class="project-overlay">
+                                <a href="https://duquin.github.io/Academic-Performance/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Применять CSS-анимации и переходы для улучшения пользовательского опыта</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Academic Performance</h3>
+                        <p class="project-description">Система отслеживания академической успеваемости с диаграммами, статистикой и интерактивной панелью управления.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Charts.js</span>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Оптимизировать веб-приложения для повышения скорости загрузки</span>
+                        <a href="https://duquin.github.io/Academic-Performance/" target="_blank" class="project-action">
+                            Посмотреть проект
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Проект 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="image-wrapper bmw-image">
+                            <div class="project-tag">Automotive</div>
+                            <div class="project-overlay">
+                                <a href="https://duquin.github.io/Site-BMW/" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Использовать Git для контроля версий и совместной разработки</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">BMW Конфигуратор</h3>
+                        <p class="project-description">Конфигуратор автомобилей BMW с выбором модели, цвета, комплектации и расчетом итоговой стоимости.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Interactive UI</span>
                         </div>
-                        <div class="skill-item">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Тестировать и отлаживать код для обеспечения качества проекта</span>
+                        <a href="https://duquin.github.io/Site-BMW/" target="_blank" class="project-action">
+                            Посмотреть проект
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция навыков -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="skills-container">
+                <div class="skills-card">
+                    <div class="skills-header">
+                        <h2 class="skills-title">Чему я научился</h2>
+                        <div class="skills-icon">
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
                     </div>
                     
-                    <div class="quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p>Создание веб-проектов - это постоянный процесс обучения и совершенствования навыков. Каждый новый проект открывает возможности для изучения современных технологий и подходов к разработке.</p>
+                    <div class="skills-content">
+                        <p class="skills-intro">За процесс обучения и создание проектов я освоил ключевые технологии и методологии веб-разработки:</p>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-js"></i>
+                                </div>
+                                <h3>JavaScript</h3>
+                                <p>Разработка интерактивных интерфейсов, работа с DOM, асинхронные запросы, ES6+ синтаксис</p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-html5"></i>
+                                </div>
+                                <h3>HTML5 & CSS3</h3>
+                                <p>Семантическая верстка, Flexbox, Grid, адаптивный дизайн, CSS-анимации, препроцессоры</p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <h3>React.js</h3>
+                                <p>Разработка SPA-приложений, работа с состояниями, компонентный подход, React Hooks</p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fab fa-git-alt"></i>
+                                </div>
+                                <h3>Git & GitHub</h3>
+                                <p>Контроль версий, ветвление, пулл-реквесты, деплой проектов на GitHub Pages</p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fas fa-paint-brush"></i>
+                                </div>
+                                <h3>UI/UX Design</h3>
+                                <p>Работа с Figma, создание прототипов, проектирование пользовательских интерфейсов</p>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-icon">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                                <h3>Оптимизация</h3>
+                                <p>Улучшение производительности, lazy loading, минификация, оптимизация изображений</p>
+                            </div>
+                        </div>
+                        
+                        <div class="skills-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <p>Создание веб-проектов научило меня не только писать код, но и мыслить как пользователь, предвидеть потребности и создавать интуитивно понятные интерфейсы. Каждый проект — это новый вызов и возможность применить современные подходы к разработке.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,35 +300,60 @@
     </section>
 
     <!-- Футер -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-info">
-                <h3>Зимирев Иван</h3>
-                <p>Веб-разработчик</p>
-                <div class="social-links">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-github"></i>
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <span class="logo-text">IZ</span>
+                        <span class="logo-sub">Портфолио</span>
                     </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-telegram"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                    <p class="footer-description">Веб-разработчик, специализирующийся на создании современных и функциональных пользовательских интерфейсов.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Проекты</h3>
+                    <ul>
+                        <li><a href="https://duquin.github.io/Site-NFT-Plush-PEPE/" target="_blank">NFT Plush PEPE</a></li>
+                        <li><a href="https://duquin.github.io/Anti-Virus-Dr-WEB/#" target="_blank">Anti-Virus Dr. WEB</a></li>
+                        <li><a href="https://duquin.github.io/Academic-Performance/" target="_blank">Academic Performance</a></li>
+                        <li><a href="https://duquin.github.io/Site-BMW/" target="_blank">BMW Конфигуратор</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 class="footer-title">Контакты</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Зимирев Иван</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Веб-разработчик</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>duquin@github.io</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h4>Мои проекты</h4>
-                <ul>
-                    <li><a href="https://duquin.github.io/Site-NFT-Plush-PEPE/" target="_blank">NFT Plush PEPE</a></li>
-                    <li><a href="https://duquin.github.io/Anti-Virus-Dr-WEB/#" target="_blank">Anti-Virus Dr. WEB</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Дипломные работы Зимирева Ивана. Все проекты доступны на GitHub Pages.</p>
             </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2023 Дипломные работы Зимирева Ивана. Все права защищены.</p>
         </div>
     </footer>
 

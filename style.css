@@ -1,0 +1,495 @@
+/* style.css */
+
+/* Сброс и базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Стили баннера */
+.banner {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a237e 0%, #283593 30%, #3949ab 70%, #5c6bc0 100%);
+    color: white;
+    overflow: hidden;
+}
+
+.banner-content {
+    text-align: center;
+    z-index: 2;
+    animation: fadeIn 1.5s ease-out;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.banner-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.banner-title span {
+    color: #ffd54f;
+    display: block;
+    font-size: 4rem;
+    margin-top: 10px;
+}
+
+.banner-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scroll-indicator {
+    margin-top: 60px;
+    animation: float 2s ease-in-out infinite;
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+/* Декоративные элементы баннера */
+.banner-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -100px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.circle-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    animation: float 8s ease-in-out infinite 1s;
+}
+
+.circle-3 {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    left: 10%;
+    animation: float 7s ease-in-out infinite 0.5s;
+}
+
+/* Секция проектов */
+.projects-section {
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #1a237e;
+    animation: fadeIn 1s ease-out;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+    height: 220px;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nft-project {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+.antivirus-project {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.image-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 15px;
+}
+
+.project-info {
+    padding: 30px;
+}
+
+.project-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #1a237e;
+}
+
+.project-info p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    color: #3949ab;
+    font-weight: 600;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #1a237e;
+}
+
+.project-link i {
+    margin-left: 8px;
+    font-size: 0.9rem;
+}
+
+/* Секция навыков */
+.skills-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.skills-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.skills-header {
+    padding: 40px 40px 20px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skills-header h2 {
+    font-size: 2.2rem;
+}
+
+.skills-icon {
+    font-size: 3rem;
+    opacity: 0.8;
+}
+
+.skills-content {
+    padding: 40px;
+}
+
+.skills-content > p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.skills-list {
+    margin-bottom: 40px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    animation: slideInLeft 0.8s ease-out both;
+}
+
+.skill-item:nth-child(2) { animation-delay: 0.1s; }
+.skill-item:nth-child(3) { animation-delay: 0.2s; }
+.skill-item:nth-child(4) { animation-delay: 0.3s; }
+.skill-item:nth-child(5) { animation-delay: 0.4s; }
+.skill-item:nth-child(6) { animation-delay: 0.5s; }
+.skill-item:nth-child(7) { animation-delay: 0.6s; }
+
+.skill-item i {
+    color: #4caf50;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.skill-item span {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.quote {
+    background: #f5f7ff;
+    padding: 25px;
+    border-left: 5px solid #3949ab;
+    border-radius: 0 10px 10px 0;
+    animation: slideInRight 0.8s ease-out 0.7s both;
+}
+
+.quote i {
+    color: #3949ab;
+    font-size: 1.5rem;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.quote p {
+    display: inline;
+    font-style: italic;
+    color: #555;
+}
+
+/* Футер */
+.footer {
+    background: #1a237e;
+    color: white;
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.footer-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-info p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: #3949ab;
+    transform: translateY(-3px);
+}
+
+.footer-links h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    text-align: center;
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .banner-title {
+        font-size: 2.5rem;
+    }
+    
+    .banner-title span {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .skills-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px 20px;
+    }
+    
+    .skills-icon {
+        margin-top: 20px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-title {
+        font-size: 2rem;
+    }
+    
+    .banner-title span {
+        font-size: 2.5rem;
+    }
+    
+    .skills-content {
+        padding: 30px 20px;
+    }
+    
+    .project-card {
+        min-width: 100%;
+    }
+}

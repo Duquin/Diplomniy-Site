@@ -1,1 +1,486 @@
+/* Хакерская тема - темный фон, зеленые акценты[citation:3] */
+:root {
+    --hacker-green: #00ff00;
+    --hacker-dark: #0a0a0a;
+    --hacker-darker: #050505;
+    --hacker-gray: #1a1a1a;
+    --hacker-text: #cccccc;
+    --neon-blue: #0066ff;
+    --neon-purple: #9900ff;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--hacker-darker);
+    color: var(--hacker-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(0, 102, 255, 0.05) 0%, transparent 20%);
+}
+
+/* Стили для хедера[citation:10] */
+.hacker-header {
+    background-color: var(--hacker-dark);
+    border-bottom: 2px solid var(--hacker-green);
+    padding: 2rem 1rem;
+    position: relative;
+    overflow: hidden;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-content {
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+/* Эффект "глитча" для заголовка */
+.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--hacker-green);
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    animation: glitch-1 2s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 #0066ff;
+    animation: glitch-2 3s infinite linear alternate-reverse;
+}
+
+.subtitle {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.highlight {
+    color: var(--hacker-green);
+    text-shadow: 0 0 8px var(--hacker-green);
+}
+
+/* Стилизация строки терминала */
+.terminal-line {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--hacker-green);
+    padding: 1rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+}
+
+.prompt {
+    color: var(--hacker-green);
+    margin-right: 10px;
+}
+
+.command {
+    color: white;
+}
+
+.cursor {
+    color: var(--hacker-green);
+    animation: blink 1s infinite;
+}
+
+/* Эффект матрицы на фоне */
+.matrix-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+/* Основной контент */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.card {
+    background-color: var(--hacker-dark);
+    border: 1px solid var(--hacker-gray);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    border-color: var(--hacker-green);
+    transform: translateY(-5px);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--hacker-gray);
+}
+
+.section-title i {
+    color: var(--hacker-green);
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+.section-title h3 {
+    font-size: 1.8rem;
+    color: var(--hacker-green);
+}
+
+/* Секция "О себе" */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .about-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+.hacker-avatar {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--hacker-darker), var(--hacker-gray));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--hacker-green);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.hacker-avatar i {
+    font-size: 4rem;
+    color: var(--hacker-green);
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    margin-right: 8px;
+}
+
+.status-indicator.active {
+    background-color: var(--hacker-green);
+    box-shadow: 0 0 10px var(--hacker-green);
+}
+
+.status-text {
+    color: var(--hacker-green);
+    font-size: 0.9rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.skill-tag {
+    background-color: rgba(0, 255, 0, 0.1);
+    color: var(--hacker-green);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 0, 0.3);
+    font-size: 0.9rem;
+}
+
+/* Карточки ссылок */
+.links-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .links-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.link-card {
+    display: flex;
+    background-color: var(--hacker-gray);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+    align-items: center;
+}
+
+.link-card:hover {
+    border-color: var(--hacker-green);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.telegram:hover {
+    border-color: #0088cc;
+    box-shadow: 0 0 15px rgba(0, 136, 204, 0.2);
+}
+
+.github:hover {
+    border-color: #6e40c9;
+    box-shadow: 0 0 15px rgba(110, 64, 201, 0.2);
+}
+
+.link-icon {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+}
+
+.telegram .link-icon {
+    color: #0088cc;
+}
+
+.github .link-icon {
+    color: #6e40c9;
+}
+
+.link-info {
+    flex: 1;
+}
+
+.link-info h4 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.link-info p {
+    color: var(--hacker-green);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.link-desc {
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.link-status {
+    color: var(--hacker-green);
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.stat {
+    background-color: var(--hacker-gray);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(0, 255, 0, 0.1);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--hacker-green);
+    margin-bottom: 10px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.terminal-output {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--hacker-green);
+    border-radius: 5px;
+    padding: 1.5rem;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.terminal-output div {
+    margin-bottom: 5px;
+    color: #90ee90;
+}
+
+.terminal-output div:before {
+    content: ">";
+    color: var(--hacker-green);
+    margin-right: 10px;
+}
+
+/* Футер */
+.hacker-footer {
+    background-color: var(--hacker-dark);
+    border-top: 1px solid var(--hacker-gray);
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.footer-content p {
+    margin-bottom: 0.5rem;
+    color: #888;
+}
+
+.encrypted {
+    color: var(--hacker-green);
+    font-size: 0.9rem;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* Инфо-бокс */
+.additional-info {
+    margin-top: 2rem;
+}
+
+.info-box {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-left: 3px solid var(--hacker-green);
+    padding: 1.5rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.info-box h4 {
+    color: var(--hacker-green);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-box h4 i {
+    margin-right: 10px;
+}
+
+/* Анимации */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes glitch-1 {
+    0% { clip-path: inset(40% 0 61% 0); }
+    5% { clip-path: inset(92% 0 1% 0); }
+    10% { clip-path: inset(43% 0 1% 0); }
+    15% { clip-path: inset(25% 0 58% 0); }
+    20% { clip-path: inset(54% 0 7% 0); }
+    25% { clip-path: inset(58% 0 43% 0); }
+    30% { clip-path: inset(98% 0 1% 0); }
+    35% { clip-path: inset(25% 0 73% 0); }
+    40% { clip-path: inset(51% 0 46% 0); }
+    45% { clip-path: inset(21% 0 48% 0); }
+    50% { clip-path: inset(94% 0 5% 0); }
+    55% { clip-path: inset(8% 0 18% 0); }
+    60% { clip-path: inset(1% 0 99% 0); }
+    65% { clip-path: inset(25% 0 73% 0); }
+    70% { clip-path: inset(90% 0 1% 0); }
+    75% { clip-path: inset(3% 0 1% 0); }
+    80% { clip-path: inset(72% 0 1% 0); }
+    85% { clip-path: inset(36% 0 1% 0); }
+    90% { clip-path: inset(86% 0 12% 0); }
+    95% { clip-path: inset(6% 0 56% 0); }
+    100% { clip-path: inset(84% 0 6% 0); }
+}
+
+@keyframes glitch-2 {
+    0% { clip-path: inset(25% 0 58% 0); }
+    5% { clip-path: inset(45% 0 1% 0); }
+    10% { clip-path: inset(25% 0 58% 0); }
+    15% { clip-path: inset(60% 0 1% 0); }
+    20% { clip-path: inset(10% 0 65% 0); }
+    25% { clip-path: inset(90% 0 5% 0); }
+    30% { clip-path: inset(25% 0 73% 0); }
+    35% { clip-path: inset(50% 0 1% 0); }
+    40% { clip-path: inset(15% 0 80% 0); }
+    45% { clip-path: inset(85% 0 10% 0); }
+    50% { clip-path: inset(20% 0 1% 0); }
+    55% { clip-path: inset(60% 0 1% 0); }
+    60% { clip-path: inset(95% 0 5% 0); }
+    65% { clip-path: inset(5% 0 75% 0); }
+    70% { clip-path: inset(90% 0 1% 0); }
+    75% { clip-path: inset(30% 0 1% 0); }
+    80% { clip-path: inset(70% 0 1% 0); }
+    85% { clip-path: inset(40% 0 1% 0); }
+    90% { clip-path: inset(10% 0 85% 0); }
+    95% { clip-path: inset(80% 0 1% 0); }
+    100% { clip-path: inset(5% 0 90% 0); }
+}

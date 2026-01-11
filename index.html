@@ -1,34 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Дипломный сайт Ивана Зимирева</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Кнопка смены темы -->
-    <button id="themeBtn" class="theme-btn">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <!-- Кнопки быстрой навигации -->
-    <nav class="quick-nav">
-        <button class="nav-btn" data-target="links">
-            <i class="fas fa-link"></i>
-            <span>Ссылки</span>
-        </button>
-        <button class="nav-btn" data-target="about">
-            <i class="fas fa-user"></i>
-            <span>Обо мне</span>
-        </button>
-        <button class="nav-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-            <i class="fas fa-arrow-up"></i>
-            <span>Наверх</span>
-        </button>
-    </nav>
-
     <!-- Главный баннер -->
     <header class="banner">
         <div class="terminal">
@@ -39,81 +8,56 @@
             </div>
             <h1>Дипломный сайт<br>Зимирев Иван</h1>
             <p class="subtitle">Учусь графическому программированию</p>
+            
+            <!-- Ссылки на технологии -->
+            <div class="tech-links">
+                <a href="#figma">Figma</a>
+                <a href="#stackblitz">StackBlitz</a>
+                <a href="#codepen">CodePen</a>
+                <a href="#github">GitHub</a>
+            </div>
         </div>
     </header>
-  
-  
-  <div class="tags"> 
-    
-    <span> HTML/CSS </span>
-                <span>JavaScript</span>
-                <span>Figma</span>  
-    <span>StackBlitz</span> 
-                 <span>CodePen</span>    
-              <span>GitHub</span>    
-            </div>
-        </div>
-    </main>
 
-    <!-- Ссылки -->
     <main class="container">
-        <div class="links" id="links">
-            <a href="https://github.com/Duquin" target="_blank" class="link-btn github">
-                <i class="fab fa-github"></i>
-                <div>
-                    <h3>GitHub</h3>
-                    <p>Все мои проекты и диплом.</p>
-                </div>
-            </a>
-
-            <a href="https://t.me/Official_Duquin" target="_blank" class="link-btn telegram">
-                <i class="fab fa-telegram"></i>
-                <div>
-                    <h3>Telegram</h3>
-                    <p>Связь со мной</p>
-                </div>
-            </a>
-
-            <a href="https://www.figma.com/proto/S8abGmiaIDA6y8tlELfOZi?node-id=2-70&t=6uchCWftuGkZ32CX-6" target="_blank" class="link-btn figma">
-                <i class="fab fa-figma"></i>
-                <div>
-                    <h3>Figma Проект</h3>
-                    <p>Простой проект (на этом проекте, показ автомобиля - БМВ</p>
-                </div>
-            </a>
-
-            <a href="https://duquin.github.io/Framer/" target="_blank" class="link-btn github">
-                <i class="fas fa-cube"></i>
-                <div>
-                    <h3>3D Web проект</h3>
-                    <p>Мой первый 3D Проект сделанный на HTML/CSS и JavaScript. </p>
-                </div>
-            </a>
+        <!-- Разделы технологий -->
+        <div class="tech-section" id="figma">
+            <h2><i class="fab fa-figma"></i> Figma</h2>
+            <p>Создаю дизайн сайтов перед тем как писать код. Удобно для визуализации.</p>
         </div>
 
-        <!-- Простое описание -->
-        <div class="about" id="about">
-            <h2><i class="fas fa-user"></i> Обо мне и мнение о GitHub, Figma, HTML/CSS - JavaScript, StackBlitz, CodePen</h2>
-            <p>Мне 14 лет, увлекаюсь графическим программированием, WebGL и созданием 3D графики. Этот сайт - моя дипломная работа. В этом разделе я бы хотел бы рассказать о платформах, и не только. 
-          
-          GitHub - Мой главный рабочий инструмент. Хранить код на GitHub - это как вести цифровой дневник программиста. Видно весь прогресс: от первых простых скриптов до сложных проектов. Особенно нравится, что можно смотреть, как другие решают задачи - это лучший способ учиться. Для диплома GitHub идеален - вся история изменений видна, можно показать, как проект развивался. Figma - Для визуалов и дизайнеров это просто находка. Когда делал макет для диплома, понял главное преимущество: можно быстро перебирать варианты без переписывания кода. Интерфейс интуитивный, даже в 14 лет разобрался быстро. Единственное - нужно понимать, что красивый макет в Figma ≠ работающий сайт. Это только первый шаг. HTML/CSS + JavaScript - Основа всего, что видишь в браузере. HTML - это каркас дома, CSS - отделка и дизайн, а JavaScript - электричество и водопровод. Начинал с простых страничек, теперь делаю интерактивные проекты. Главный плюс - результат видно сразу. Минус - в JavaScript много "подводных камней", особенно в асинхронных операциях. StackBlitz - Обнаружил недавно, когда нужно было показать 3D-проект. Главное преимущество: не нужно ничего устанавливать. Полноценная среда разработки прямо в браузере - это волшебно. Особенно удобно для быстрых демонстраций или когда нужно поработать с чужим кодом. Для новичков - идеальный вариант, чтобы не мучиться с настройкой окружения. CodePen - Мой цифровой скетчбук. Когда приходит идея или нужно потестировать небольшой кусок кода, открываю CodePen. Интерфейс минималистичный, ничего лишнего. Часто смотрю, что делают другие - можно найти интересные решения и техники. Минус - для больших проектов не очень подходит, больше для экспериментов.  Личное мнение: В 14 лет эти инструменты дают невероятные возможности. 10 лет назад нужно было бы устанавливать кучу программ, сейчас всё в браузере. GitHub учит дисциплине (коммиты, ветки), Figma - дизайн-мышлению, HTML/CSS/JS - основам программирования, а StackBlitz и CodePen позволяют экспериментировать без риска что-то сломать. Идеальный стек для старта в веб-разработке.
+        <div class="tech-section" id="stackblitz">
+            <h2><i class="fas fa-code"></i> StackBlitz</h2>
+            <p>Работаю с кодом прямо в браузере. Не нужно ничего устанавливать.</p>
+        </div>
 
-Для дипломного проекта эта комбинация идеальна: Figma для макета, GitHub для хранения кода, StackBlitz для демо-версий, а HTML/CSS/JS как основной инструмент реализации. </p>
-            <div class="tags">
-                <span>HTML/CSS</span>
-                <span>JavaScript</span>
-                <span>Figma</span>   <span>StackBlitz</span>
-                 <span>CodePen</span>
-              <span>GitHub</span>
-            </div>
+        <div class="tech-section" id="codepen">
+            <h2><i class="fab fa-codepen"></i> CodePen</h2>
+            <p>Тестирую небольшие идеи и смотрю работы других программистов.</p>
+        </div>
+
+        <div class="tech-section" id="github">
+            <h2><i class="fab fa-github"></i> GitHub</h2>
+            <p>Храню все свои проекты. Можно показать работу комиссии.</p>
+        </div>
+      
+       <!-- Мои ссылки -->
+        <div class="links">
+            <a href="https://github.com/Duquin" target="_blank" class="link-btn">
+                <i class="fab fa-github"></i>
+                <span>GitHub</span>
+            </a>
+            <a href="https://t.me/Official_Duquin" target="_blank" class="link-btn">
+                <i class="fab fa-telegram"></i>
+                <span>Telegram</span>
+            </a>
+            <a href="https://www.figma.com/proto/S8abGmiaIDA6y8tlELfOZi" target="_blank" class="link-btn">
+                <i class="fab fa-figma"></i>
+                <span>Figma проект</span>
+            </a>
+            <a href="https://duquin.github.io/Framer/" target="_blank" class="link-btn">
+                <i class="fas fa-cube"></i>
+                <span>3D проект</span>
+            </a>
         </div>
     </main>
-
-    <footer>
-        <p>© 2024 Дипломный сайт Ивана Зимирева</p>
-        <p class="small">Создано с помощью HTML, CSS и JS</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>

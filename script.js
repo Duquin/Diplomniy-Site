@@ -1,41 +1,39 @@
-// Минимальный скрипт для сайта
-
+// Простой скрипт
 document.addEventListener('DOMContentLoaded', function() {
+    
     // 1. Эффект печатающегося текста
     const textElement = document.getElementById('typedText');
     const texts = [
-        "запускаю дипломный сайт...",
-        "подключаю GitHub...", 
-        "готовлю 3D проект...",
-        "все системы работают!"
+        "создаю дипломный сайт...",
+        "пишу код на JavaScript...",
+        "работаю с графикой...",
+        "готовлю проект к защите!"
     ];
     
     let textIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
+    let deleting = false;
     
     function typeText() {
-        const currentText = texts[textIndex];
+        const text = texts[textIndex];
         
-        if (isDeleting) {
-            textElement.textContent = currentText.substring(0, charIndex - 1);
+        if (deleting) {
+            textElement.textContent = text.substring(0, charIndex - 1);
             charIndex--;
         } else {
-            textElement.textContent = currentText.substring(0, charIndex + 1);
+            textElement.textContent = text.substring(0, charIndex + 1);
             charIndex++;
         }
         
         let speed = 100;
         
-        if (isDeleting) {
-            speed = 50;
-        }
+        if (deleting) speed = 50;
         
-        if (!isDeleting && charIndex === currentText.length) {
+        if (!deleting && charIndex === text.length) {
             speed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
+            deleting = true;
+        } else if (deleting && charIndex === 0) {
+            deleting = false;
             textIndex = (textIndex + 1) % texts.length;
             speed = 500;
         }
@@ -50,52 +48,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const icon = themeBtn.querySelector('i');
     
     themeBtn.addEventListener('click', function() {
-        document.body.classList.toggle('light-theme');
-        
-        if (document.body.classList.contains('light-theme')) {
-            icon.className = 'fas fa-sun';
-        } else {
-            icon.className = 'fas fa-moon';
-        }
+        document.body.classList.toggle('light');
+        icon.className = document.body.classList.contains('light') ? 
+            'fas fa-moon' : 'fas fa-sun';
     });
     
-    // 3. Навигация по кнопкам
-    const navButtons = document.querySelectorAll('.nav-btn[data-target]');
-    
-    navButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetId = this.dataset.target;
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    
-    // 4. Простой эффект при наведении на ссылки
-    const links = document.querySelectorAll('.link-btn');
-    
-    links.forEach(link => {
-        link.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-        });
-        
-        link.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-        
-        // Добавляем подтверждение при клике
+    // 3. Плавный скролл для ссылок в шапке
+    document.querySelectorAll('.tech-links a').forEach(link => {
         link.addEventListener('click', function(e) {
-            const linkName = this.querySelector('h3').textContent;
-            if (!confirm(`Перейти в ${linkName}?`)) {
-                e.preventDefault();
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+    
+    // 4. Подтверждение внешних ссылок
+    document.querySelectorAll('.link-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            if (this.target === '_blank') {
+                const name = this.querySelector('span').textContent;
+                if (!confirm(`Открыть ${name}?`)) {
+                    e.preventDefault();
+                }
             }
         });
     });
     
-    console.log('Сайт загружен! Удачи с дипломом!');
+    console.log('Сайт готов!');
 });

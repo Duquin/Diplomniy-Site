@@ -1,219 +1,277 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Courier New', monospace;
+/* --- Основные настройки и переменные --- */
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333333;
+    --accent-color: #007bff; /* Синий */
+    --accent-hover: #0056b3;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --font-heading: 'Roboto Slab', serif;
+    --font-body: 'Open Sans', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка */
 }
 
 body {
-    background: #0a0a0a;
-    color: #00ff00;
-    min-height: 100vh;
-    padding: 20px;
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-body.light {
-    background: #f5f5f5;
-    color: #333;
-}
-
-/* Кнопка темы */
-.theme-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #222;
-    color: #00ff00;
-    border: 2px solid #00ff00;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 100;
-}
-
-.light .theme-btn {
-    background: white;
-    color: #333;
-    border-color: #333;
-}
-
-/* Баннер */
-.banner {
-    text-align: center;
-    padding: 40px 20px;
-    margin-bottom: 40px;
-}
-
-.terminal-line {
-    background: #111;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    text-align: left;
-    border: 1px solid #00ff00;
-}
-
-.prompt {
-    color: #00ff00;
-}
-
-.cursor {
-    animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-h1 {
-    font-size: 2rem;
-    margin: 20px 0 10px;
-}
-
-.subtitle {
-    color: #888;
-    margin-bottom: 30px;
-}
-
-/* Ссылки на технологии */
-.tech-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.tech-links a {
-    color: #00ff00;
-    text-decoration: none;
-    padding: 10px 20px;
-    border: 2px solid #00ff00;
-    border-radius: 25px;
-    transition: all 0.3s;
-}
-
-.tech-links a:hover {
-    background: #00ff00;
-    color: #000;
-}
-
-.light .tech-links a {
-    color: #333;
-    border-color: #333;
-}
-
-.light .tech-links a:hover {
-    background: #333;
-    color: white;
-}
-
-/* Разделы технологий */
 .container {
-    max-width: 800px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* --- Шапка (Header) --- */
+.header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky; /* Фиксация шапки при скролле */
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.nav-link:hover {
+    color: var(--accent-color);
+}
+
+/* Бургер меню (скрыто на ПК) */
+.burger-menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.burger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: 0.3s;
+}
+
+/* --- Секция Герой --- */
+.hero {
+    padding: 100px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #eef2f3 0%, #ffffff 100%);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    max-width: 600px;
     margin: 0 auto;
 }
 
-.tech-section {
-    background: #111;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    border-left: 5px solid #00ff00;
+/* --- Общие стили секций --- */
+section {
+    padding: 80px 0;
 }
 
-.light .tech-section {
-    background: white;
-    border-left: 5px solid #333;
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
 }
 
-.tech-section h2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
+/* Декоративная линия под заголовком */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
 }
 
-.tech-section p {
-    color: #ccc;
-    line-height: 1.5;
-}
-
-.light .tech-section p {
-    color: #666;
-}
-
-/* Мои ссылки */
-.links {
+/* --- Проекты --- */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin: 40px 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-.link-btn {
-    background: #222;
-    color: #00ff00;
-    border: 2px solid #00ff00;
-    padding: 20px;
-    border-radius: 10px;
-    text-decoration: none;
+.project-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s;
+    align-items: flex-start;
 }
 
-.link-btn:hover {
+.project-card:hover {
     transform: translateY(-5px);
-    background: #00ff00;
-    color: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-.light .link-btn {
-    background: white;
-    color: #333;
-    border-color: #333;
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin: 0 0 15px;
 }
 
-.light .link-btn:hover {
-    background: #333;
-    color: white;
+.project-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 25px;
+    flex-grow: 1; /* Чтобы кнопка всегда была внизу */
 }
 
-.link-btn i {
-    font-size: 2rem;
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
-/* Футер */
-footer {
+.btn:hover {
+    background-color: var(--accent-hover);
+}
+
+/* --- Ресурсы --- */
+.resources {
+    background-color: #f1f1f1;
     text-align: center;
-    padding: 30px;
-    color: #888;
-    margin-top: 50px;
 }
 
-/* Адаптивность */
-@media (max-width: 600px) {
-    .tech-links {
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.icon-btn {
+    font-size: 2.5rem;
+    color: var(--text-color);
+    transition: color 0.3s, transform 0.3s;
+}
+
+.icon-btn:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* --- Футер --- */
+.footer {
+    background-color: #222;
+    color: #aaa;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-to-top {
+    color: var(--white);
+    border: 1px solid #555;
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.back-to-top:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* --- Адаптивность (Mobile First) --- */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: flex;
+        z-index: 1100;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Скрыто за экраном */
+        width: 70%;
+        height: 100vh;
+        background-color: var(--white);
         flex-direction: column;
+        justify-content: center;
         align-items: center;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
     }
-    
-    .tech-links a {
-        width: 200px;
+
+    /* Класс active добавляется через JS */
+    .nav-list.active {
+        right: 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 15px;
         text-align: center;
-    }
-    
-    .links {
-        grid-template-columns: 1fr;
-    }
-    
-    h1 {
-        font-size: 1.5rem;
     }
 }

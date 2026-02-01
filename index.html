@@ -1,62 +1,112 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Зимирев Иван</title>
-<style>
-body{font-family:sans-serif;margin:20px;max-width:800px;margin:auto;padding:20px;background:#fafafa}
-header{text-align:center;margin:40px 0}
-h1{margin:10px 0;color:#333}
-.links{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:40px 0}
-a{display:block;padding:15px;background:white;border-radius:8px;text-align:center;text-decoration:none;color:#333;border:1px solid #ddd;transition:.2s}
-a:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.1)}
-.figma{color:#f24e1e}
-.content{margin:40px 0}
-.box{background:white;border-radius:8px;padding:20px;margin:20px 0;border:1px solid #ddd;white-space:pre-line}
-table{width:100%;border-collapse:collapse}
-td,th{padding:10px;border-bottom:1px solid #eee;text-align:left}
-footer{text-align:center;margin-top:60px;color:#777;font-size:.9em}
-@media(min-width:600px){.links{grid-template-columns:repeat(4,1fr)}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дипломный Сайт Зимирева Ивана</title>
+    
+    <!-- Подключение Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключение Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<header>
-<h1>Зимирев Иван</h1>
-<p>Дипломный проект</p>
-</header>
+<body id="top">
 
-<div class="links">
-<a href="https://github.com">GitHub</a>
-<a href="https://figma.com" class="figma">Figma</a>
-<a href="https://stackblitz.com">StackBlitz</a>
-<a href="https://codepen.io">CodePen</a>
-</div>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#top" class="logo">Иван Зимирев</a>
+            
+            <nav class="nav">
+                <ul class="nav-list" id="nav-list">
+                    <li><a href="#hero" class="nav-link">Главная</a></li>
+                    <li><a href="#projects" class="nav-link">Проекты</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li> <!-- Секция Ресурсы выступает как контакты -->
+                </ul>
+                <button class="burger-menu" id="burger-menu" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-<div class="content">
-<div class="box">
-<strong>image.png</strong><br><br>
-с 8 марта!
+    <!-- Секция Герой -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1 class="hero-title">Дипломный сайт Зимирева Ивана</h1>
+            <p class="hero-subtitle">Привет, я Иван. Здесь представлены мои проекты, включая дипломную работу.</p>
+        </div>
+    </section>
 
-Дорогие женщины!  
-Поздравляем Вас с  
-Праздником! Желаем всегда  
-оставаться самыми  
-красивыми и любимыми!
-</div>
+    <!-- Секция Проекты -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Мои проекты</h2>
+            <div class="projects-grid">
+                
+                <!-- Проект 1 -->
+                <article class="project-card">
+                    <h3 class="project-title">Антивирус Dr.Web</h3>
+                    <p class="project-desc">Разработка, связанная с антивирусным ПО.</p>
+                    <a href="https://github.com/Duquin/Anti-Virus-Dr-WEB" target="_blank" class="btn">Посмотреть проект</a>
+                </article>
 
-<div class="box">
-<strong>price_list.csv</strong><br><br>
-<table>
-<tr><th>Service</th><th>Term</th><th>Price</th></tr>
-<tr><td>Site</td><td>1 days</td><td>13,17 USD</td></tr>
-<tr><td>3D</td><td>3 days</td><td>26,34 USD</td></tr>
-<tr><td>Computer Animation</td><td>7 days</td><td>39,51 USD</td></tr>
-</table>
-</div>
-</div>
+                <!-- Проект 2 -->
+                <article class="project-card">
+                    <h3 class="project-title">Верстка Framer</h3>
+                    <p class="project-desc">Пример качественной верстки лендинга.</p>
+                    <a href="https://duquin.github.io/Framer/" target="_blank" class="btn">Посмотреть проект</a>
+                </article>
 
-<footer>
-© 2023 Зимирев Иван
-</footer>
+                <!-- Проект 3 -->
+                <article class="project-card">
+                    <h3 class="project-title">Копия Bellavista</h3>
+                    <p class="project-desc">Реплика сайта с вниманием к деталям.</p>
+                    <a href="https://duquin.github.io/Copy-Bellavista/" target="_blank" class="btn">Посмотреть проект</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция Ресурсы (Контакты) -->
+    <section id="contacts" class="resources">
+        <div class="container">
+            <h2 class="section-title">Мои ресурсы</h2>
+            <div class="social-icons">
+                <a href="https://github.com/Duquin" target="_blank" class="icon-btn" title="GitHub Профиль">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://figma.com" target="_blank" class="icon-btn" title="Figma">
+                    <i class="fab fa-figma"></i>
+                </a>
+                <a href="https://stackblitz.com" target="_blank" class="icon-btn" title="StackBlitz">
+                    <i class="fas fa-bolt"></i> <!-- StackBlitz иконка -->
+                </a>
+                <a href="https://codepen.io" target="_blank" class="icon-btn" title="CodePen">
+                    <i class="fab fa-codepen"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; 2023 Дипломный сайт Зимирева Ивана. Все права защищены.</p>
+            <a href="#top" class="back-to-top">Наверх &uarr;</a>
+        </div>
+    </footer>
+
+    <!-- Подключение скрипта -->
+    <script src="script.js"></script>
 </body>
 </html>
